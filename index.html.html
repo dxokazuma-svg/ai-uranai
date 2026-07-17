@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10061f">
+<title>月詠｜無料の星座・数秘術・タロット占い</title>
+<meta name="description" content="生年月日・星座・数秘術・タロットを組み合わせた完全無料の運命鑑定。登録不要・APIキー不要。">
+<style>
+:root{
+  --bg:#10061f;--bg2:#1b0b32;--panel:rgba(28,14,49,.82);--panel2:rgba(44,23,73,.72);
+  --gold:#e7c879;--gold2:#f5e3ae;--text:#fffaf0;--muted:#c9bdd6;--line:rgba(231,200,121,.25);
+  --violet:#9b73e8;--pink:#e99bc7;--shadow:0 24px 80px rgba(0,0,0,.42);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Yu Gothic UI",sans-serif;
+  background:
+    radial-gradient(circle at 20% 15%,rgba(139,92,246,.2),transparent 30%),
+    radial-gradient(circle at 82% 14%,rgba(235,155,199,.13),transparent 26%),
+    linear-gradient(160deg,#0b0415 0%,#160728 44%,#080411 100%);
+  overflow-x:hidden;
+}
+body::before,body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+}
+body::before{
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.9) 0 1px,transparent 1.5px),
+    radial-gradient(circle,rgba(255,255,255,.5) 0 1px,transparent 1.4px);
+  background-size:89px 89px,137px 137px;background-position:0 0,28px 44px;opacity:.28;
+  animation:stars 18s linear infinite;
+}
+body::after{
+  background:radial-gradient(ellipse at center,transparent 20%,rgba(0,0,0,.5) 100%);
+}
+@keyframes stars{to{background-position:89px 89px,165px 181px}}
+.wrap{width:min(980px,calc(100% - 28px));margin:auto;padding:42px 0 80px}
+.hero{text-align:center;padding:18px 8px 28px}
+.brand{display:inline-flex;align-items:center;gap:10px;color:var(--gold2);font-size:13px;letter-spacing:.22em}
+.moon{font-size:20px;filter:drop-shadow(0 0 12px rgba(245,227,174,.6))}
+h1{margin:14px 0 10px;font-family:Georgia,"Yu Mincho",serif;font-size:clamp(34px,6vw,64px);letter-spacing:.1em;font-weight:500;text-shadow:0 0 28px rgba(231,200,121,.2)}
+.lead{max-width:670px;margin:0 auto;color:var(--muted);line-height:1.9;font-size:14px}
+.chips{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{border:1px solid var(--line);background:rgba(255,255,255,.04);padding:7px 11px;border-radius:999px;font-size:12px;color:#e8deee}
+.crystal-stage{height:205px;display:grid;place-items:center;margin:10px 0 22px}
+.crystal{
+  position:relative;width:145px;height:145px;border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 28%,rgba(255,255,255,.95) 0 4%,rgba(255,255,255,.28) 8%,transparent 20%),
+    radial-gradient(circle at 50% 55%,rgba(235,155,199,.45),transparent 42%),
+    radial-gradient(circle at 48% 52%,rgba(126,87,214,.7),rgba(41,18,78,.82) 63%,rgba(10,4,22,.94));
+  border:1px solid rgba(255,255,255,.45);
+  box-shadow:0 0 28px rgba(139,92,246,.7),0 0 70px rgba(231,200,121,.24),inset 0 0 35px rgba(255,255,255,.17);
+  animation:float 4.6s ease-in-out infinite;
+}
+.crystal::before{content:"";position:absolute;inset:-23px;border:1px solid rgba(231,200,121,.19);border-radius:50%;animation:spin 13s linear infinite}
+.crystal::after{content:"✦";position:absolute;inset:0;display:grid;place-items:center;font-size:38px;color:rgba(255,255,255,.88);text-shadow:0 0 18px #fff;animation:pulse 2.5s ease-in-out infinite}
+.base{position:absolute;width:112px;height:26px;margin-top:150px;border-radius:50%;background:linear-gradient(180deg,#6c4c23,#24160c);box-shadow:0 10px 25px rgba(0,0,0,.55),inset 0 2px rgba(255,255,255,.2)}
+@keyframes float{50%{transform:translateY(-10px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{50%{opacity:.5;transform:scale(.86)}}
+.card{
+  background:linear-gradient(180deg,rgba(35,18,59,.9),rgba(18,9,32,.92));
+  border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);
+  backdrop-filter:blur(16px);padding:clamp(20px,4vw,38px);position:relative;overflow:hidden;
+}
+.card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.045),transparent 35%);pointer-events:none}
+.card-head{text-align:center;margin-bottom:28px}
+.card-head h2{font-family:Georgia,"Yu Mincho",serif;font-size:clamp(23px,4vw,33px);font-weight:500;margin:0 0 10px;color:var(--gold2)}
+.card-head p{margin:0;color:var(--muted);line-height:1.8;font-size:13px}
+.grid{display:grid;gap:20px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;margin:0 0 8px;font-weight:650;font-size:13px;color:#f3e8f5}
+input,select,textarea{
+  width:100%;border:1px solid rgba(231,200,121,.25);background:rgba(8,4,17,.65);
+  color:white;border-radius:14px;padding:14px 15px;font:inherit;outline:none;transition:.2s;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(231,200,121,.08)}
+select option{background:#190b2c}
+textarea{min-height:145px;resize:vertical;line-height:1.75}
+.section-title{font-size:16px;color:var(--gold2);font-family:Georgia,"Yu Mincho",serif;letter-spacing:.08em;border-bottom:1px solid var(--line);padding-bottom:10px}
+.note,.help{font-size:11px;color:#9f91ad;line-height:1.65;margin:7px 0 0}
+.freebox,.privacy,.partner{
+  border:1px solid rgba(231,200,121,.2);border-radius:18px;background:rgba(255,255,255,.025);padding:16px;
+}
+.freebox strong{color:var(--gold2)}
+.freebox p,.privacy{font-size:12px;line-height:1.7;color:#cfc3d7;margin:5px 0 0}
+.privacy{display:flex;gap:9px;color:#b9d8ca;border-color:rgba(109,211,167,.2);background:rgba(70,170,128,.07)}
+.partner h3{margin:0 0 14px;color:var(--gold2);font-size:14px}
+.primary,.secondary{
+  border:0;border-radius:16px;padding:16px 20px;font-weight:800;letter-spacing:.04em;font-size:15px;cursor:pointer;transition:.2s
+}
+.primary{color:#25140a;background:linear-gradient(135deg,#f5e3ae,#d3a850);box-shadow:0 12px 32px rgba(211,168,80,.22)}
+.primary:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.secondary{background:rgba(255,255,255,.06);color:#efe7f3;border:1px solid var(--line)}
+.hidden{display:none!important}
+.error{background:rgba(192,60,80,.14);border:1px solid rgba(255,110,130,.32);color:#ffd4da;padding:12px 14px;border-radius:13px;font-size:13px}
+.loading{text-align:center;padding:55px 10px}
+.loader-orbit{width:92px;height:92px;margin:0 auto 25px;border-radius:50%;border:1px solid rgba(231,200,121,.25);position:relative;animation:spin 2.2s linear infinite}
+.loader-orbit::before{content:"✦";position:absolute;top:-10px;left:37px;color:var(--gold2);font-size:20px;text-shadow:0 0 15px white}
+.loading h3{font-family:Georgia,"Yu Mincho",serif;color:var(--gold2);font-size:23px;font-weight:500}
+.loading p{color:var(--muted)}
+.result{display:grid;gap:24px}
+.result-top{text-align:center}
+.result-top h2{font-family:Georgia,"Yu Mincho",serif;font-size:clamp(26px,5vw,40px);font-weight:500;color:var(--gold2);margin:0 0 14px}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.pill{padding:7px 10px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:#e8dff0;background:rgba(255,255,255,.035)}
+.reading{white-space:pre-wrap;line-height:2.05;color:#f7f1f8;font-size:14px}
+.reading::first-line{color:var(--gold2)}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mini{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:20px;padding:20px}
+.mini h3{margin:0 0 14px;color:var(--gold2);font-family:Georgia,"Yu Mincho",serif;font-weight:500}
+.tarot-wrap{perspective:1000px;display:grid;place-items:center;margin:10px 0 16px}
+.tarot{width:150px;height:245px;position:relative;transform-style:preserve-3d;transition:transform .8s;cursor:pointer}
+.tarot.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:15px;border:1px solid var(--gold);display:grid;place-items:center;text-align:center;padding:15px;box-shadow:0 15px 35px rgba(0,0,0,.4)}
+.back{background:repeating-linear-gradient(45deg,#1d0d35,#1d0d35 9px,#351759 9px,#351759 18px)}
+.back::after{content:"☾";font-size:58px;color:var(--gold2);text-shadow:0 0 20px rgba(245,227,174,.7)}
+.front{transform:rotateY(180deg);background:linear-gradient(160deg,#f5e3ae,#cda756);color:#29140b}
+.front .symbol{font-size:45px}
+.front strong{display:block;font-size:17px;margin-top:8px}
+.front small{display:block;margin-top:4px}
+.action{font-size:14px;line-height:1.85;color:#f2ebf4}
+.footer{text-align:center;color:#8f819a;font-size:11px;line-height:1.7;margin-top:24px}
+@media(max-width:700px){.two,.result-grid{grid-template-columns:1fr}.wrap{width:min(100% - 18px,980px);padding-top:25px}.card{border-radius:20px}.crystal-stage{height:175px}.crystal{width:125px;height:125px}.base{margin-top:132px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="hero">
+    <div class="brand"><span class="moon">☾</span> TSUKUYOMI FORTUNE</div>
+    <h1>月詠 運命鑑定</h1>
+    <p class="lead">生年月日・星座・数秘術・タロットを重ね、あなたの本質、現在の流れ、恋愛、仕事、金運、これから三か月の導きを読み解きます。</p>
+    <div class="chips"><span class="chip">完全無料</span><span class="chip">登録不要</span><span class="chip">APIキー不要</span><span class="chip">外部送信なし</span></div>
+  </header>
+
+  <div class="crystal-stage"><div class="crystal"></div><div class="base"></div></div>
+
+  <section id="formCard" class="card">
+    <div class="card-head">
+      <h2>水晶に運命を尋ねる</h2>
+      <p>必要な項目を入力すると、あなた専用の鑑定結果が表示されます。</p>
+    </div>
+
+    <form id="fortuneForm" class="grid">
+      <div class="freebox"><strong>完全無料で利用できます</strong><p>APIキーや課金は必要ありません。このページ内だけで鑑定結果を作ります。</p></div>
+      <div class="section-title">あなたの情報</div>
+
+      <div class="two">
+        <div><label for="name">お名前・ニックネーム</label><input id="name" type="text" maxlength="30" required placeholder="例：あかり"></div>
+        <div><label for="birth">生年月日</label><input id="birth" type="date" required></div>
+      </div>
+
+      <div>
+        <label for="gender">性別（任意）</label>
+        <select id="gender"><option value="">選択しない</option><option>女性</option><option>男性</option><option>その他</option></select>
+      </div>
+
+      <div>
+        <label for="theme">一番詳しく占いたいこと</label>
+        <select id="theme">
+          <option value="総合運">総合運</option><option value="恋愛運">恋愛運</option><option value="相性運">二人の相性</option>
+          <option value="仕事運">仕事運</option><option value="金運">金運</option><option value="人間関係">人間関係</option>
+          <option value="今後3か月">今後3か月</option><option value="今日の運勢">今日の運勢</option>
+        </select>
+        <p class="help">「二人の相性」を選ぶと、お相手の入力欄が表示されます。</p>
+      </div>
+
+      <div id="partnerBox" class="partner hidden">
+        <h3>お相手の情報</h3>
+        <div class="two">
+          <div><label for="partnerName">お相手のお名前</label><input id="partnerName" type="text" maxlength="30" placeholder="例：ゆうた"></div>
+          <div><label for="partnerBirth">お相手の生年月日</label><input id="partnerBirth" type="date"></div>
+        </div>
+      </div>
+
+      <div>
+        <label for="consultation">相談内容</label>
+        <textarea id="consultation" required maxlength="1200" placeholder="今悩んでいること、相手との関係、仕事の状況、これから知りたいことなどを自由に書いてください。"></textarea>
+        <p class="note">入力内容や生年月日によって、鑑定文の組み合わせが変わります。</p>
+      </div>
+
+      <div class="privacy"><span>🔒</span><span>入力内容は外部に送信されません。この端末の画面上だけで鑑定します。</span></div>
+      <div id="errorBox" class="error hidden"></div>
+      <button class="primary" type="submit">運命を読み取る</button>
+    </form>
+  </section>
+
+  <section id="loading" class="card loading hidden">
+    <div class="loader-orbit"></div><h3>運命を読み取っています…</h3><p id="loadingText">星と数字の導きを重ねています</p>
+  </section>
+
+  <section id="result" class="card result hidden">
+    <div class="result-top">
+      <h2 id="resultName"></h2>
+      <div class="pills"><span id="zodiacPill" class="pill"></span><span id="numberPill" class="pill"></span><span id="datePill" class="pill"></span></div>
+    </div>
+    <div id="reading" class="reading"></div>
+    <div class="result-grid">
+      <div class="mini">
+        <h3>今日のタロット</h3>
+        <div class="tarot-wrap"><div id="tarotCard" class="tarot"><div class="face back"></div><div class="face front"><div><div id="tarotSymbol" class="symbol"></div><strong id="tarotName"></strong><small id="tarotPosition"></small></div></div></div></div>
+        <p class="note" style="text-align:center">カードをタップしてください</p>
+        <p id="tarotText" class="action hidden"></p>
+      </div>
+      <div class="mini"><h3>開運アクション</h3><p id="actionText" class="action"></p></div>
+    </div>
+    <button id="againBtn" class="secondary" type="button">もう一度占う</button>
+  </section>
+
+  <p class="footer">この鑑定はエンターテインメントです。医療・法律・投資など重要な判断は専門家へご相談ください。</p>
+</main>
+
+<script>
+const zodiacTraits={
+"山羊座":["責任感が強く、時間をかけて信頼を築く人","焦らず積み重ねるほど大きな成果につながる","一人で抱え込みすぎず、頼ることも開運になる"],
+"水瓶座":["独自の感性と自由な発想を持つ人","周囲と違う視点が状況を変える鍵になる","距離を置きすぎず、本音を言葉にすると運が動く"],
+"魚座":["感受性が豊かで、人の気持ちを深く汲み取れる人","優しさと直感が良い縁を引き寄せる","相手を優先しすぎず、自分の境界線も大切に"],
+"牡羊座":["行動力があり、最初の一歩を恐れない人","迷った時ほど小さく動くことで流れが変わる","勢いだけで決めず一呼吸置くと成功しやすい"],
+"牡牛座":["安定感があり、五感と現実感覚に優れた人","自分のペースを守るほど力を発揮できる","変化を拒まず新しい選択肢を一つ試すと開運"],
+"双子座":["言葉と情報を扱う才能があり、好奇心旺盛な人","人との会話から思わぬ答えが見つかる","考えすぎて散らからないよう優先順位を一つ決める"],
+"蟹座":["愛情深く、大切な人や居場所を守る人","安心できる環境を整えることで本来の力が出る","過去の感情を抱え続けず今の気持ちを選ぶ"],
+"獅子座":["華やかさと誇りを持ち、人を照らす力がある人","遠慮せず自分の良さを表現すると運が上がる","評価を求めすぎず自分で自分を認める"],
+"乙女座":["細やかな観察力と実務能力を持つ人","整理・改善・準備が成功を引き寄せる","完璧を求めすぎずまず完成させる"],
+"天秤座":["調和感覚と美意識に優れ、人との間を整える人","良い人間関係がチャンスを運んでくる","周囲に合わせすぎず自分の希望を明確にする"],
+"蠍座":["集中力と洞察力があり、深い絆を大切にする人","覚悟を決めた時の強さが大きな変化を生む","疑いすぎず確認できることは言葉で確かめる"],
+"射手座":["自由を愛し、未来へ向かう力が強い人","新しい学びや移動が運気を活性化する","広げるだけでなく一つを続けることが成果になる"]
+};
+const numberTraits={
+1:["自分の意志で道を切り開く開拓者","決断と行動","独断にならず相手の声も聞く"],2:["人を支え調和を生み出す協力者","信頼関係","我慢しすぎず希望を伝える"],
+3:["明るさと表現力で場を動かす人","創造性と言葉","気分任せにならず小さく継続する"],4:["現実的で安定した土台を築く人","計画と継続","変化を恐れず柔軟さを持つ"],
+5:["変化に強く自由な感性を持つ人","行動範囲を広げること","勢いだけで約束しない"],6:["愛情と責任感を持ち人を育てる人","家庭・美・調和","背負いすぎず自分も満たす"],
+7:["深く考え本質を見抜く探究者","学びと内省","考えを閉じ込めず言葉にする"],8:["現実を動かし成果を形にする人","目標と豊かさ","結果だけでなく過程も大切にする"],
+9:["広い視野と慈愛を持つ完成者","手放しと貢献","過去に区切りをつける"],11:["鋭い直感と理想を持つ人","ひらめきと感性","神経を使いすぎず休息を取る"],
+22:["大きな構想を現実にする人","長期計画と実行力","完璧を求めず段階的に進める"],33:["深い愛と包容力を持つ癒やし手","無条件の優しさ","自己犠牲を避け自分の幸せも守る"]
+};
+const themes={
+"総合運":["今は大きく飛ぶ前に生活と気持ちの土台を整える時期です。","身近な選択を丁寧にすると数か月後の大きな差になります。","違和感のあることを一つ減らすと運気が軽くなります。"],
+"恋愛運":["相手の気持ちを想像しすぎるより自然な会話を重ねることが大切です。","好意を隠しすぎず重くならない言葉で示すと関係が進みます。","過去の経験を今の相手に重ねず目の前の言動を見ましょう。"],
+"相性運":["二人の違いは欠点ではなく役割分担になりそうです。","理解しようとする姿勢と本音を伝える勇気の両方が必要です。","答えを急がず安心できる会話を重ねることが鍵です。"],
+"仕事運":["曖昧な作業を整理し優先順位を明確にすると評価につながります。","得意分野を言葉にすると新しい役割が生まれそうです。","小さな改善を続けることで余裕と成果が生まれます。"],
+"金運":["増やすことより先にお金の流れを整えることで安定します。","衝動的な出費を一度保留すると満足度が上がります。","財布・口座・固定費を見直すと余白が見つかります。"],
+"人間関係":["誰にでも同じ距離で接するより安心できる相手を大切に。","誤解されたくない部分だけ丁寧に伝えると心が軽くなります。","離れる縁と育てる縁が少しずつ見えてくる時です。"],
+"今後3か月":["三か月は整理・決断・前進の順に流れが変化します。","最初は準備、次は人との動き、最後は結果を受け取る時期です。","確実な積み重ねによって状況が良い方向へ整います。"],
+"今日の運勢":["今日は小さな選択が一日の流れを整える日です。","午前中に一つ用事を片づけると午後の運気が軽くなります。","偶然目に入った言葉や連絡にヒントがあります。"]
+};
+const tarot=[
+["愚者","🕊️","新しい始まり。完璧な準備を待たず、心が惹かれる方向へ小さな一歩を。"],["魔術師","✨","必要な力はすでにあります。考えていることを具体的な行動へ。"],
+["女教皇","🌙","答えを外に求めすぎず、自分の直感を静かに聞いてください。"],["女帝","🌹","愛情と豊かさが育つ時。自分を丁寧に扱うことが良い縁を呼びます。"],
+["皇帝","👑","境界線と責任を明確にすると運が安定します。"],["恋人","💞","心から納得できる選択が重要です。自分の本音を大切に。"],
+["戦車","🏇","迷いながらでも進むことで道が開けます。"],["力","🦁","強引さではなく優しさと忍耐が状況を動かします。"],
+["隠者","🕯️","一人で考える時間が必要です。静かな場所で整理を。"],["運命の輪","🎡","流れが切り替わる兆し。偶然の連絡にきっかけがあります。"],
+["正義","⚖️","感情だけでなく事実も見つめる日。公平な判断があなたを守ります。"],["星","⭐","希望を失わないで。願いに近づく流れは始まっています。"],
+["月","🌕","不安が真実とは限りません。確認することで霧が晴れます。"],["太陽","☀️","素直な喜びが運を強めます。成功や好意を受け取りましょう。"],["世界","🌍","一つの区切りと完成。次の段階へ進む準備を。"]
+];
+const actions=["玄関かスマホ画面をきれいにし、不要なものを一つ手放す。","寝る前に3分間深く呼吸し、本音を一つ書き出す。","普段より少し明るい色を身につける。","気になっている人へ短く誠実な連絡を一本返す。","財布の中を整理し今日使う金額を決める。","湯船につかり感情を一度リセットする。","机の上を10分整え明日最初にすることを決める。"];
+const luckyColors=["深い紫","月光の白","シャンパンゴールド","桜色","空色","若草色","琥珀色","紺色"];
+const luckyItems=["小さな鏡","お気に入りの香り","白いハンカチ","丸いアクセサリー","新しいペン","温かい飲み物","手帳","鍵"];
+
+function digitSum(n){return String(n).split("").reduce((a,b)=>a+Number(b),0)}
+function lifePath(date){let n=digitSum(date.replaceAll("-",""));while(n>9&&![11,22,33].includes(n))n=digitSum(n);return n}
+function zodiac(date){const d=new Date(date+"T00:00:00"),v=(d.getMonth()+1)*100+d.getDate();if(v>=1222||v<=119)return["山羊座","♑"];if(v<=218)return["水瓶座","♒"];if(v<=320)return["魚座","♓"];if(v<=419)return["牡羊座","♈"];if(v<=520)return["牡牛座","♉"];if(v<=621)return["双子座","♊"];if(v<=722)return["蟹座","♋"];if(v<=822)return["獅子座","♌"];if(v<=922)return["乙女座","♍"];if(v<=1023)return["天秤座","♎"];if(v<=1122)return["蠍座","♏"];return["射手座","♐"]}
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return Math.abs(h)}
+function pick(a,s,o=0){return a[(s+o)%a.length]}
+function todayJa(){return new Intl.DateTimeFormat("ja-JP",{year:"numeric",month:"long",day:"numeric"}).format(new Date())}
+function compatibility(n1,n2,z1,z2,s){const groups=[["牡羊座","獅子座","射手座"],["牡牛座","乙女座","山羊座"],["双子座","天秤座","水瓶座"],["蟹座","蠍座","魚座"]];const same=groups.some(g=>g.includes(z1)&&g.includes(z2));return Math.min(98,68+((n1*7+n2*5+s)%25)+(same?4:0))}
+
+const theme=document.getElementById("theme"),partnerBox=document.getElementById("partnerBox");
+theme.addEventListener("change",()=>{const show=theme.value==="相性運";partnerBox.classList.toggle("hidden",!show);partnerName.required=show;partnerBirth.required=show});
+const maxDate=new Date().toISOString().split("T")[0];birth.max=maxDate;partnerBirth.max=maxDate;
+
+fortuneForm.addEventListener("submit",e=>{
+ e.preventDefault();
+ const n=name.value.trim(),b=birth.value,g=gender.value,t=theme.value,c=consultation.value.trim(),pn=partnerName.value.trim(),pb=partnerBirth.value;
+ errorBox.classList.add("hidden");
+ if(!n||!b||!c||(t==="相性運"&&(!pn||!pb))){errorBox.textContent=t==="相性運"?"あなたとお相手の情報、相談内容を入力してください。":"お名前・生年月日・相談内容を入力してください。";errorBox.classList.remove("hidden");return}
+ const z=zodiac(b),num=lifePath(b),today=todayJa(),seed=hash(n+b+t+c+pn+pb+today),zt=zodiacTraits[z[0]],nt=numberTraits[num];
+ formCard.classList.add("hidden");loading.classList.remove("hidden");
+ const msgs=["星と数字の導きを重ねています","生年月日に宿る運命数を読み解いています","恋愛・仕事・金運の流れを整えています","最後のメッセージを紡いでいます"];let i=0;
+ const timer=setInterval(()=>loadingText.textContent=msgs[++i%msgs.length],750);
+ setTimeout(()=>{
+  clearInterval(timer);
+  let comp="";
+  if(t==="相性運"){const pz=zodiac(pb),pnum=lifePath(pb),score=compatibility(num,pnum,z[0],pz[0],seed);comp=`\n\n◆ ${pn}さんとの相性\n\nあなたは${z[0]}・運命数${num}、${pn}さんは${pz[0]}・運命数${pnum}です。\n二人の相性度は ${score}% 。違いを理解した時に強い絆へ育ちやすい組み合わせです。\nあなたは「${nt[1]}」を大切にし、相手は「${numberTraits[pnum][1]}」を求めやすい傾向があります。正しさを競うより、安心できる伝え方を選ぶことが関係を育てる鍵です。`}
+  const text=`◆ あなたの本質\n\n${n}さんは、${z[0]}らしい「${zt[0]}」という性質と、運命数${num}が示す「${nt[0]}」という力をあわせ持っています。\nあなたの大きなテーマは「${nt[1]}」。注意したいのは「${nt[2]}」ことです。${g?g+"として周囲からどう見られるかに縛られすぎず、":""}自然体でいられる選択を重ねるほど本来の魅力が表れます。\n\n◆ 現在の運気\n\n${pick(themes[t],seed)}\n今は目立つ変化がなくても内側では流れが切り替わっています。違和感を無視せず、予定・人間関係・お金・持ち物の中から負担になっているものを一つ整えてください。\n${zt[1]}でしょう。また、${zt[2]}。\n\n◆ 恋愛運\n\n相手の反応を読みすぎるより、あなた自身がどんな関係なら安心できるのかを明確にすることが重要です。\n出会いを求めている場合は普段と少し違う場所や知人を通じたつながりに縁があります。気になる相手がいる場合は、結論を迫るより短く明るい会話を増やしましょう。\n\n◆ 仕事運\n\n仕事運は、実際の行動で信頼を積み上げることで上昇します。苦手なことを無理に克服するより、得意な作業や評価される部分を一つ伸ばしてください。\n曖昧な依頼は期限・優先順位・完成形を確認するとミスを防げます。\n\n◆ 金運\n\n金運は「使わないこと」より「納得できる使い方」を選ぶことで安定します。大きな買い物は一晩置いて判断するのが吉です。\nラッキーカラーは${pick(luckyColors,seed,3)}、ラッキーアイテムは${pick(luckyItems,seed,5)}、ラッキーナンバーは${seed%9+1}です。\n\n◆ 今後3か月\n\n第1か月：不要なものや曖昧な関係を整理する時。今ある課題を一つ終わらせると運が整います。\n第2か月：人との会話や連絡から新しい展開が生まれやすい時。気になる相手や場所へ軽く働きかけて。\n第3か月：積み重ねてきたことの結果が見え始めます。小さな成果も自信として受け取りましょう。${comp}\n\n◆ 今のあなたへの言葉\n\n今すぐ完璧な答えを出さなくても大丈夫です。迷っているのは、真剣に未来を考えている証拠でもあります。\n今日できることを一つ選び、それを終えた自分を認めてください。運は、自分を丁寧に扱う日々の選択によって少しずつ育っていきます。`;
+  loading.classList.add("hidden");result.classList.remove("hidden");
+  resultName.textContent=t==="相性運"?`${n}さんと${pn}さんの相性鑑定`:`${n}さんの鑑定`;
+  zodiacPill.textContent=z[1]+" "+z[0];numberPill.textContent="運命数 "+num;datePill.textContent=today;reading.textContent=text;
+  const card=tarot[seed%tarot.length],rev=((seed>>3)%2)===1;
+  tarotSymbol.textContent=card[1];tarotName.textContent=card[0];tarotPosition.textContent=rev?"逆位置":"正位置";
+  tarotText.textContent=(rev?"今はカードの力が内側へ向いています。焦らず心と環境を整えてください。 ":"")+card[2];
+  actionText.textContent=actions[seed%actions.length];result.scrollIntoView({behavior:"smooth"});
+ },2800);
+});
+tarotCard.addEventListener("click",()=>{tarotCard.classList.add("flipped");setTimeout(()=>tarotText.classList.remove("hidden"),650)});
+againBtn.addEventListener("click",()=>{result.classList.add("hidden");tarotCard.classList.remove("flipped");tarotText.classList.add("hidden");formCard.classList.remove("hidden");formCard.scrollIntoView({behavior:"smooth"})});
+</script>
+</body>
+</html>
